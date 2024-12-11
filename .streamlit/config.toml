@@ -1,0 +1,21 @@
+[theme]
+# Thème foncé élégant
+#primaryColor="#93C4E7"  # Bleu clair pour les éléments interactifs
+#backgroundColor="#0E1117"  # Fond noir profond
+#secondaryBackgroundColor="#262730"  # Gris foncé pour la sidebar
+#textColor="#FFFFFF"  # Texte blanc
+#font="sans serif"
+
+# Autres options de thèmes que vous pouvez essayer (il suffit de remplacer les valeurs) :
+
+# Thème clair professionnel :
+primaryColor="#1E88E5"  # Bleu-vert
+backgroundColor="#FFFFFF"  # Blanc
+secondaryBackgroundColor="#F0F2F6"  # Gris très clair
+textColor="#262730"  # Gris foncé
+
+# Thème bleu professionnel :
+# primaryColor="#1E88E5"  # Bleu
+# backgroundColor="#F8F9FA"  # Blanc cassé
+# secondaryBackgroundColor="#E9ECEF"  # Gris clair
+# textColor="#212529"  # Gris très foncé
