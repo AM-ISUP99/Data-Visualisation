@@ -560,30 +560,20 @@ if selected == "Comparaison de pays":
 elif selected == "Carte":
     create_kepler_map()
 
-elif selected == "Rapport ML":
+import os
+import webbrowser
+
+if selected == "Rapport PDF":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
-    pdf_file_path = "Projet ML (1).pdf"  # Remplacez par le chemin exact de votre fichier
+    pdf_file_path = "Projet ML (1).pdf"  # Chemin vers le fichier
 
-    try:
-        with open(pdf_file_path, "rb") as pdf_file:
-            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
-            # Afficher dans un iframe
-            pdf_viewer = f"""
-            <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800px"></iframe>
-            """
-            st.markdown(pdf_viewer, unsafe_allow_html=True)
+    if os.path.exists(pdf_file_path):
+        if st.button("📂 Ouvrir le rapport PDF dans le navigateur"):
+            webbrowser.open_new_tab(f"file:///{os.path.abspath(pdf_file_path)}")
+    else:
+        st.error("Le fichier PDF est introuvable.")
 
-        # Bouton de téléchargement
-        with open(pdf_file_path, "rb") as pdf_file:
-            st.download_button(
-                label="📥 Télécharger le rapport PDF",
-                data=pdf_file,
-                file_name="rapport.pdf",
-                mime="application/pdf",
-            )
-    except Exception as e:
-        st.error(f"Erreur lors de l'affichage du PDF : {str(e)}")
 
 
 elif selected == "Prédictions":
