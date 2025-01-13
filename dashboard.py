@@ -764,7 +764,7 @@ elif selected == "Accueil":
     # Section interactive
     st.subheader("🌍 Explorer les Données")
 
-    with st.container():
+    with st.container():  # Boîte pour les outils de sélection
         col1, col2 = st.columns(2)
     
         with col1:
@@ -783,6 +783,7 @@ elif selected == "Accueil":
     
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
+    
     with st.container():
         if view_type == "Espérance de vie moyenne par région":
             fig = px.bar(
