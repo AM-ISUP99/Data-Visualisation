@@ -481,7 +481,7 @@ with st.sidebar:
         """, 
         unsafe_allow_html=True
     )
-    st.markdown("<p style='text-align: center; font-size: 1em;'>Projet Data Visualisation<br>ISUP 2024</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1em;'>Projet Data Visualisation<br>Andréa Massé, Paul Barthelemy, Hamza Silabdi, Florian Gaudin <br>ISUP 2024</p>", unsafe_allow_html=True)
 
 if selected == "Comparaison de pays":
     st.markdown('<div class="gradient-text">Comparaison de pays</div>', unsafe_allow_html=True)
