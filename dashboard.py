@@ -703,6 +703,14 @@ elif selected == "Accueil":
         .stat-card:hover {
             transform: translateY(-5px);
         }
+
+        .box-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
         </style>
         
         <div class="gradient-text">
@@ -765,9 +773,7 @@ elif selected == "Accueil":
     st.subheader("🌍 Explorer les Données")
 
     # Conteneur pour les graphiques et sélecteurs
-    st.markdown("""
-        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="box-container">', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
