@@ -567,20 +567,16 @@ elif selected == "Carte":
 elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
-    # Chemin vers le fichier PDF
-    pdf_file_path = "Projet ML (1).pdf"  # Remplacez par le chemin exact du fichier
+    pdf_file_path = "Projet ML (1).pdf"
 
-    try:
-        # Convertir le PDF en images
-        pages = convert_from_path(pdf_file_path)
-
-        # Afficher chaque page comme une image
-        for page_number, page in enumerate(pages):
-            st.image(page, caption=f"Page {page_number + 1}", use_column_width=True)
-    except Exception as e:
-        st.error(f"Erreur lors de l'affichage du PDF : {str(e)}")
-
-
+    if os.path.exists(pdf_file_path):
+        st.markdown(f"""
+        <a href="file://{os.path.abspath(pdf_file_path)}" target="_blank">
+        📂 Ouvrir le PDF dans un nouvel onglet
+        </a>
+        """, unsafe_allow_html=True)
+    else:
+        st.error("Le fichier PDF est introuvable.")
 
 elif selected == "Prédictions":
     st.markdown('<div class="gradient-text">Prédictions de l\'espérance de vie</div>', unsafe_allow_html=True)
