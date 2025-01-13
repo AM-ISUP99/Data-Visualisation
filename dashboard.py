@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.feature_selection import SelectFromModel
 from keplergl import KeplerGl
 import geopandas as gpd
-import request
+import requests
 
 # Configuration de la page
 st.set_page_config(
