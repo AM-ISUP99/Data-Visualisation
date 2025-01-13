@@ -468,7 +468,7 @@ with st.sidebar:
     st.markdown("<hr>", unsafe_allow_html=True)  # Ligne de séparation
     selected = option_menu(
         menu_title="Menu",
-        options=["Accueil","Comparaison de pays","Évolution dans le temps", "Prédictions", "Analyses","Carte",,"Rapport ML","À propos"],
+        options=["Accueil","Comparaison de pays","Évolution dans le temps", "Prédictions", "Analyses","Carte","Rapport ML","À propos"],
         icons=["house","bar-chart", "bar-chart","graph-up", "info-circle","map"],
         menu_icon="",
         default_index=0,
