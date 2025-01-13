@@ -6,3 +6,6 @@ scikit-learn
 geopandas==0.12.2
 keplergl==0.3.2
 streamlit==1.25.0
+shapely==2.0.1
+fiona==1.9.4
+pyproj==3.4.1
