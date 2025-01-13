@@ -19,3 +19,13 @@ textColor="#262730"  # Gris foncé
 # backgroundColor="#F8F9FA"  # Blanc cassé
 # secondaryBackgroundColor="#E9ECEF"  # Gris clair
 # textColor="#212529"  # Gris très foncé
+
+[server]
+maxUploadSize = 200
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "dark"
