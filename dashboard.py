@@ -22,18 +22,6 @@ st.set_page_config(
 
 )
 
-st.markdown("""
-    <style>
-    .encapsulated {
-        background-color: #FFFFFF;
-        padding: 20px; /* Augmentez la marge interne */
-        border: 1px solid #8BA6BC;
-        border-radius: 10px; /* Plus de courbure */
-        margin-bottom: 20px; /* Espace sous chaque boîte */
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 # Chargement des données
 @st.cache_data  # Cette décoration permet de mettre en cache les données
 def load_data():
@@ -776,7 +764,6 @@ elif selected == "Accueil":
     # Section interactive
     st.subheader("🌍 Explorer les Données")
     
-    st.markdown('<div class="encapsulated">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     
     with col1:
@@ -792,9 +779,7 @@ elif selected == "Accueil":
             "Choisissez un type de visualisation",
             ["Espérance de vie moyenne par région", "Distribution des pays"]
         )
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    st.markdown('<div class="encapsulated">', unsafe_allow_html=True)
+    
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
 
@@ -821,7 +806,6 @@ elif selected == "Accueil":
         height=500
     )
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
     
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
