@@ -775,6 +775,7 @@ elif selected == "Accueil":
 
     # Section interactive
     st.subheader("🌍 Explorer les Données")
+    
     st.markdown('<div class="encapsulated">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     
@@ -792,7 +793,8 @@ elif selected == "Accueil":
             ["Espérance de vie moyenne par région", "Distribution des pays"]
         )
     st.markdown('</div>', unsafe_allow_html=True)
-    
+
+    st.markdown('<div class="encapsulated">', unsafe_allow_html=True)
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
 
@@ -819,7 +821,8 @@ elif selected == "Accueil":
         height=500
     )
     st.plotly_chart(fig, use_container_width=True)
-
+    st.markdown('</div>', unsafe_allow_html=True)
+    
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
     with st.expander("À propos des données"):
