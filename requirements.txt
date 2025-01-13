@@ -7,4 +7,3 @@ scikit-learn
 keplergl
 geopandas==0.12.2
 fiona==1.8.21
-geopandas
