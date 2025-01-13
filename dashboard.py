@@ -784,9 +784,9 @@ elif selected == "Accueil":
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
     
-    with st.container():
-        if view_type == "Espérance de vie moyenne par région":
-            fig = px.bar(
+   st.markdown('<div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; margin-top: 20px;">', unsafe_allow_html=True)
+    if view_type == "Espérance de vie moyenne par région":
+        fig = px.bar(
                 df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
                 x='Region',
                 y='Life_expectancy',
@@ -794,8 +794,8 @@ elif selected == "Accueil":
                 labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'},
                 color_discrete_sequence=['#1e88e5']
             )
-        else:
-            fig = px.box(
+    else:
+        fig = px.box(
                 df_year,
                 x='Region',
                 y='Life_expectancy',
@@ -803,11 +803,11 @@ elif selected == "Accueil":
                 labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'}
             )
     
-        fig.update_layout(
+    fig.update_layout(
             template="plotly_white",
             height=500
         )
-        st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
     
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
