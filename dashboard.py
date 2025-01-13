@@ -15,6 +15,8 @@ from keplergl import KeplerGl
 import geopandas as gpd
 import os
 import webbrowser
+from pdf2image import convert_from_path
+from PIL import Image
 
 # Configuration de la page
 st.set_page_config(
@@ -561,9 +563,6 @@ if selected == "Comparaison de pays":
 
 elif selected == "Carte":
     create_kepler_map()
-
-from pdf2image import convert_from_path
-from PIL import Image
 
 elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
