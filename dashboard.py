@@ -568,13 +568,14 @@ elif selected == "Rapport ML":
     
     try:
         with open(pdf_file_path, "rb") as pdf_file:
-            pdf_data = pdf_file.read()
-            # Encodage en base64
-            base64_pdf = base64.b64encode(pdf_data).decode("utf-8")
-            
-            # Intégration du PDF dans un iframe
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px"></iframe>'
-            st.markdown(pdf_display, unsafe_allow_html=True)
+            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
+            # Utiliser un lecteur HTML pour le PDF
+            pdf_viewer = f"""
+            <object data="data:application/pdf;base64,{base64_pdf}" type="application/pdf" width="100%" height="800px">
+                <p>Impossible d'afficher le PDF. <a href="data:application/pdf;base64,{base64_pdf}" download="rapport.pdf">Télécharger ici</a>.</p>
+            </object>
+            """
+            st.components.v1.html(pdf_viewer, height=800, scrolling=True)
         
         # Bouton de téléchargement
         st.download_button(
