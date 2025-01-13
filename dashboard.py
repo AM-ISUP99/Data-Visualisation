@@ -763,6 +763,11 @@ elif selected == "Accueil":
 
     # Section interactive
     st.subheader("🌍 Explorer les Données")
+
+    # Conteneur pour les graphiques et sélecteurs
+    st.markdown("""
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
@@ -807,6 +812,8 @@ elif selected == "Accueil":
     )
     st.plotly_chart(fig, use_container_width=True)
 
+    st.markdown("</div>", unsafe_allow_html=True)
+    
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
     with st.expander("À propos des données"):
