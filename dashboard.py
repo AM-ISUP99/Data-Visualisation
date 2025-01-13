@@ -13,6 +13,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.feature_selection import SelectFromModel
 from keplergl import KeplerGl
 import geopandas as gpd
+import os
+import webbrowser
 
 # Configuration de la page
 st.set_page_config(
@@ -560,9 +562,6 @@ if selected == "Comparaison de pays":
 elif selected == "Carte":
     create_kepler_map()
 
-import os
-import webbrowser
-
 elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
@@ -573,8 +572,6 @@ elif selected == "Rapport ML":
             webbrowser.open_new_tab(f"file:///{os.path.abspath(pdf_file_path)}")
     else:
         st.error("Le fichier PDF est introuvable.")
-
-
 
 elif selected == "Prédictions":
     st.markdown('<div class="gradient-text">Prédictions de l\'espérance de vie</div>', unsafe_allow_html=True)
