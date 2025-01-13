@@ -6,3 +6,6 @@ scikit-learn
 geopandas
 keplergl
 streamlit
+shapely
+fiona
+pyproj
