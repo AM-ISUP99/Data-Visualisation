@@ -13,6 +13,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.feature_selection import SelectFromModel
 from keplergl import KeplerGl
 import geopandas as gpd
+import request
 
 # Configuration de la page
 st.set_page_config(
@@ -51,7 +52,13 @@ def create_kepler_map():
     @st.cache_data
     def load_geo_data():
         # Charger les données géographiques des pays
-        world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+        # Télécharger les données de Natural Earth
+        url = "https://raw.githubusercontent.com/geopandas/geopandas/main/geopandas/datasets/naturalearth_lowres.geojson"
+        response = requests.get(url)
+
+        # Charger les données dans GeoPandas
+        world = gpd.read_file(response.text)
+        #world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
         
         # Liste complète des colonnes numériques
         numeric_columns = [
