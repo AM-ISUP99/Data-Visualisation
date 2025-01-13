@@ -129,32 +129,29 @@ def create_kepler_map():
     # Après l'affichage de la carte, ajouter le guide
     with st.expander("📖 Guide d'utilisation de la carte", expanded=False):
         st.markdown("""
+
+        ### ❗️ Pour un meilleur affichage de la carte, veuillez fermer le menu principal en cliquant sur l'icône en forme de flèche, en haut à gauche.
+
         ### Navigation de base
         - 🖱️ **Déplacement** : Cliquez et faites glisser la carte
-        - 🔍 **Zoom** : Utilisez la molette de la souris ou le pavé tactile
-        - 🌍 **Rotation** : Maintenez SHIFT + cliquez et faites glisser
-        - 🔄 **Réinitialiser la vue** : Double-cliquez sur la carte
+        - 🔍 **Zoom** : Utilisez la molette de la souris ou le pavé tactile ou double click
         
         ### Interactions avancées
-        - 📍 **Informations sur un pays** : Cliquez sur un pays
-        - 📊 **Légende** : En bas à droite
-        - ⚙️ **Menu des paramètres** : Icône en haut à droite
+        - 📍 **Informations sur un pays** : Cliquez sur un pays ou passez la souris
+        - 📊 **Légende** : 3 ème icône à droite 
+        - 🔄 **Comparaison** : 1 ère icône à droite 
         
         ### Panneau de configuration
-        - 🎨 **Layers** : Apparence de la carte
+        - ⚙️ **Menu des layers** : Icône en haut à gauche 
+        - 🎨 **Layers** : Apparence de la carte, appuyez sur l'oeil pour afficher/masquer
         - 🎯 **Filters** : Filtrage des données
-        - 📝 **Interactions** : Paramètres d'interaction
         - 💾 **Base Map** : Style de la carte
         
         ### Code couleur
-        - 🔴 Rouge foncé : Espérance de vie plus faible
-        - 🟡 Jaune : Espérance de vie moyenne
-        - 🟢 Vert : Espérance de vie plus élevée
-        
+        - ⚠️ **Dépend du layers**, voir la légende
+
         ### Astuces
         - 💡 Ajustez l'opacité pour une meilleure visibilité
-        - 📏 Échelle disponible en bas à gauche
-        - 📊 Données basées sur les statistiques les plus récentes
         - 🔍 Utilisez les filtres pour des analyses ciblées
         """)
 
