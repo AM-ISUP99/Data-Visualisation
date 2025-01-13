@@ -784,7 +784,7 @@ elif selected == "Accueil":
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
     
-   st.markdown('<div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; margin-top: 20px;">', unsafe_allow_html=True)
+    st.markdown('<div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; margin-top: 20px;">', unsafe_allow_html=True)
     if view_type == "Espérance de vie moyenne par région":
         fig = px.bar(
             df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
