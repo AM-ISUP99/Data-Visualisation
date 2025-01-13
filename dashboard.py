@@ -765,21 +765,21 @@ elif selected == "Accueil":
     st.subheader("🌍 Explorer les Données")
 
     with st.container():
-    col1, col2 = st.columns(2)
+        col1, col2 = st.columns(2)
     
-    with col1:
-        selected_year = st.slider(
-            "Sélectionnez une année",
-            min_value=int(df['Year'].min()),
-            max_value=int(df['Year'].max()),
-            value=int(df['Year'].max())
-        )
-
-    with col2:
-        view_type = st.selectbox(
-            "Choisissez un type de visualisation",
-            ["Espérance de vie moyenne par région", "Distribution des pays"]
-        )
+        with col1:
+            selected_year = st.slider(
+                "Sélectionnez une année",
+                min_value=int(df['Year'].min()),
+                max_value=int(df['Year'].max()),
+                value=int(df['Year'].max())
+            )
+    
+        with col2:
+            view_type = st.selectbox(
+                "Choisissez un type de visualisation",
+                ["Espérance de vie moyenne par région", "Distribution des pays"]
+            )
     
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
