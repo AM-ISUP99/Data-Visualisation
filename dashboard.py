@@ -763,7 +763,7 @@ elif selected == "Accueil":
 
     # Section interactive
     st.subheader("🌍 Explorer les Données")
-    
+    st.markdown('<div class="encapsulated">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     
     with col1:
@@ -779,7 +779,8 @@ elif selected == "Accueil":
             "Choisissez un type de visualisation",
             ["Espérance de vie moyenne par région", "Distribution des pays"]
         )
-
+    st.markdown('</div>', unsafe_allow_html=True)
+    
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
 
