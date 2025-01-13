@@ -51,7 +51,10 @@ def create_kepler_map():
     @st.cache_data
     def load_geo_data():
         # Charger les données géographiques des pays
-        world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+        world = gpd.read_file("ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp")
+
+        if "ADMIN" in world.columns:
+                world.rename(columns={"ADMIN": "name"}, inplace=True)
 
         # Liste complète des colonnes numériques
         numeric_columns = [
