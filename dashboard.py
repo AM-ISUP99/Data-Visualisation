@@ -124,7 +124,11 @@ def create_kepler_map():
     map_1.add_data(data=geo_df, name="data_1")
 
     # Afficher
-    st.components.v1.html(map_1._repr_html_(), height=600, scrolling=True)
+    #st.components.v1.html(map_1._repr_html_(), height=600, scrolling=True)
+
+    map_1.save_to_html(file_name="kepler_map.html")
+    with open("kepler_map.html", "r") as f:
+        st.components.v1.html(f.read(), height=600)
 
     # Après l'affichage de la carte, ajouter le guide
     with st.expander("📖 Guide d'utilisation de la carte", expanded=False):
