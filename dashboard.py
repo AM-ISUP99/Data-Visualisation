@@ -124,7 +124,19 @@ def create_kepler_map():
     map_1.add_data(data=geo_df, name="data_1")
 
     # Afficher
-    st.components.v1.html(map_1._repr_html_(), height=600)
+    st.markdown("""
+        <style>
+        div[data-testid="stHorizontalBlock"] {
+            background-color: #FFFFFF;
+            padding: 15px;
+            border: 1px solid #8BA6BC;
+            border-radius: 5px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    col1, = st.columns(1)
+    with col1:
+        st.components.v1.html(map_1._repr_html_(), height=600)
 
     # Après l'affichage de la carte, ajouter le guide
     with st.expander("📖 Guide d'utilisation de la carte", expanded=False):
