@@ -1,6 +1,8 @@
 streamlit
 pandas
-plotly
 numpy
-streamlit_option_menu
+plotly
+streamlit-option-menu
+scikit-learn
 keplergl
+geopandas
