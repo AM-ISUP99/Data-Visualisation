@@ -764,27 +764,27 @@ elif selected == "Accueil":
     # Section interactive
     st.subheader("🌍 Explorer les Données")
 
-    with st.container():  # Boîte pour les outils de sélection
-        col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 1])  # Deux colonnes côte à côte
+
+    with col1:
+        selected_year = st.slider(
+            "Sélectionnez une année",
+            min_value=int(df['Year'].min()),
+            max_value=int(df['Year'].max()),
+            value=int(df['Year'].max())
+        )
     
-        with col1:
-            selected_year = st.slider(
-                "Sélectionnez une année",
-                min_value=int(df['Year'].min()),
-                max_value=int(df['Year'].max()),
-                value=int(df['Year'].max())
-            )
-    
-        with col2:
-            view_type = st.selectbox(
-                "Choisissez un type de visualisation",
-                ["Espérance de vie moyenne par région", "Distribution des pays"]
-            )
-    
+    with col2:
+        view_type = st.selectbox(
+            "Choisissez un type de visualisation",
+            ["Espérance de vie moyenne par région", "Distribution des pays"]
+        )
+
+    st.markdown('<hr>', unsafe_allow_html=True)
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
-    
-    st.markdown('<div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; margin-top: 20px;">', unsafe_allow_html=True)
+
+    st.markdown('<hr>', unsafe_allow_html=True)
     if view_type == "Espérance de vie moyenne par région":
         fig = px.bar(
             df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
@@ -808,7 +808,6 @@ elif selected == "Accueil":
         height=500
         )
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
