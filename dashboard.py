@@ -562,32 +562,18 @@ elif selected == "Carte":
 
 elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
-    
-    # Chemin vers le fichier PDF
-    pdf_file_path = "Projet ML (1).pdf"  # Remplacez par le chemin exact du fichier
-    
-    try:
-        with open(pdf_file_path, "rb") as pdf_file:
-            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
-            # Utiliser un lecteur HTML pour le PDF
-            pdf_viewer = f"""
-            <object data="data:application/pdf;base64,{base64_pdf}" type="application/pdf" width="100%" height="800px">
-                <p>Impossible d'afficher le PDF. <a href="data:application/pdf;base64,{base64_pdf}" download="rapport.pdf">Télécharger ici</a>.</p>
-            </object>
-            """
-            st.components.v1.html(pdf_viewer, height=800, scrolling=True)
-        
-        # Bouton de téléchargement
-        st.download_button(
-            label="📥 Télécharger le rapport PDF",
-            data=pdf_file,
-            file_name="rapport.pdf",
-            mime="application/pdf",
-        )
-    except FileNotFoundError:
-        st.error("Le fichier PDF est introuvable ! Vérifiez le chemin d'accès.")
-    except Exception as e:
-        st.error(f"Une erreur s'est produite : {str(e)}")
+
+    # Chargez dynamiquement un PDF pour tester
+    uploaded_file = st.file_uploader("Projet ML (1).pdf", type=["pdf"])
+    if uploaded_file is not None:
+        base64_pdf = base64.b64encode(uploaded_file.read()).decode("utf-8")
+        pdf_viewer = f"""
+        <object data="data:application/pdf;base64,{base64_pdf}" type="application/pdf" width="100%" height="800px">
+            <p>Impossible d'afficher le PDF. <a href="data:application/pdf;base64,{base64_pdf}" download="rapport.pdf">Télécharger ici</a>.</p>
+        </object>
+        """
+        st.components.v1.html(pdf_viewer, height=800, scrolling=True)
+
 
 elif selected == "Prédictions":
     st.markdown('<div class="gradient-text">Prédictions de l\'espérance de vie</div>', unsafe_allow_html=True)
