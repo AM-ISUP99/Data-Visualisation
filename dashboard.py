@@ -26,10 +26,10 @@ st.markdown("""
     <style>
     .encapsulated {
         background-color: #FFFFFF;
-        padding: 15px;
+        padding: 20px; /* Augmentez la marge interne */
         border: 1px solid #8BA6BC;
-        border-radius: 5px;
-        margin-bottom: 20px;
+        border-radius: 10px; /* Plus de courbure */
+        margin-bottom: 20px; /* Espace sous chaque boîte */
     }
     </style>
 """, unsafe_allow_html=True)
