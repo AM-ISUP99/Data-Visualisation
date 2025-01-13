@@ -119,7 +119,7 @@ def create_kepler_map():
             'mapStyles': {
                 'dark': {
                     'accessToken': '',
-                    'url': 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'}}}
+                    'url': 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'}}}}}
 
     # Créer la carte
     map_1 = KeplerGl(height=600, config=config)
