@@ -14,7 +14,13 @@ Dans ce GitHub, vous retrouverez tout les éléments nécessaires afin de faire 
 - kepler_config.py : contient la configuration de la carte, cad les codes couleurs, sa taille, les données à afficher etc...
 - requirements.txt : fichier permettant à streamlit de télécharger les packages afin que le site fonctionne en ligne
 
-Pour utiliser le dashboard en **local**, il vous suffira de télécharger ce GitHub, de tout mettre dans un dossier, de télécharger **Visual Studio Code**, d'ouvrir le dossier dans lequel vous avez placé les fichiers du GitHub sur VSC, de télécharger les packages nécessaires à l'aide de votre Terminal, ainsi que de vous placer dans le bon dossier et enfin de lancer le dashboard avec la commande suivante : **streamlit run dashboard.py**.
+Pour utiliser le dashboard en **local**, il vous suffira de télécharger ce GitHub, de tout mettre dans un dossier, de télécharger **Visual Studio Code**, d'ouvrir le dossier dans lequel vous avez placé les fichiers du GitHub sur Visual Studio Code, de télécharger les packages nécessaires à l'aide de votre Terminal (ne pas oublier de vérifier que vous êtes bien dans le bon fichier sur votre Terminal, sinon y accéder avec la commande **cd ../../..**) et enfin de lancer le dashboard avec la commande suivante : **streamlit run dashboard.py**.
+
+Pour toutes questions ou ajustements, n'hésitez pas à commit sur ce GitHub.
+
+Groupe GBSM, M2 Actuariat ISUP.
+
+
 
 
 
