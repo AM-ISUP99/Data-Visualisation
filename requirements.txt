@@ -5,4 +5,4 @@ plotly
 streamlit-option-menu
 scikit-learn
 keplergl
-geopandas
+geopandas==0.12.2
