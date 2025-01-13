@@ -23,7 +23,7 @@ st.set_page_config(
 )
 
 # Chargement des données
-@st.cache_data  # Cette décoration permet de mettre en cache les données
+@st.cache_resource  # Cette décoration permet de mettre en cache les données
 def load_data():
     try:
         # Remplacez 'votre_fichier.csv' par le nom de votre fichier
