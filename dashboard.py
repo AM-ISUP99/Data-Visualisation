@@ -580,7 +580,7 @@ elif selected == "Rapport ML":
         # Bouton de téléchargement
         st.download_button(
             label="📥 Télécharger le rapport PDF",
-            data=pdf_data,
+            data=pdf_file,
             file_name="rapport.pdf",
             mime="application/pdf",
         )
