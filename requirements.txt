@@ -1,8 +1,8 @@
-streamlit
 pandas
 numpy
 plotly
 streamlit-option-menu
 scikit-learn
-keplergl
-geopandas
+geopandas==0.12.2
+keplergl==0.3.2
+streamlit==1.25.0
