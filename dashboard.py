@@ -125,7 +125,7 @@ def create_kepler_map():
     map_1.add_data(data=geo_df, name="data_1")
 
     # Afficher
-    st.components.v1.html(map_1._repr_html_(), height=500)
+    st.components.v1.html(map_1._repr_html_(), height=1700)
 
     # Après l'affichage de la carte, ajouter le guide
     with st.expander("📖 Guide d'utilisation de la carte", expanded=False):
