@@ -563,18 +563,58 @@ elif selected == "Carte":
     create_kepler_map()
 
 elif selected == "Rapport ML":
-    st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
+    # Titre de la page
+    st.markdown('<div style="text-align: center;"><h1>📄 Télécharger le rapport PDF</h1></div>', unsafe_allow_html=True)
+    
+    # Texte explicatif
+    st.markdown("""
+    <div style="text-align: justify; font-size: 18px;">
+    L'évolution des systèmes de santé et des conditions socio-économiques a un impact significatif sur
+    l'espérance de vie des populations. Dans ce projet, nous avons cherché à identifier les principaux
+    facteurs influençant l'espérance de vie dans différents pays en nous basant sur une base de donnée
+    contenant des informations socio-économiques et sanitaires afin d’effectuer une prédiction de
+    l’espérance de vie. Ces données incluent différents indicateurs tels que :
+    • Life expectancy : L’espérance de vie en fonction de l’age (variable cible)
+    Et quelques variables explicatives comme par exemple :
+    • GDP_per_capita : Le PIB par habitant
+    • Adult Mortality : Taux de mortalité des adultes des deux sexes (probabilité de mourir entre
+    15 et 60 ans pour 1000 habitants)
+    • Measles : nombre de cas de rougeole signalés pour 1000 habitants
+    • Infant deaths : Nombre de décès infantiles pour 1000 habitants
+    • Economy_status_Developed : Statut développé ou en développement
+    Ces variables permettent d’étudier l’impact de différents facteurs sur l’espérance de vie et d’identifier
+    les déterminants majeurs de la longévité.
+    Ensuite, en exploitant des techniques de Machine Learning, nous avons mis en place différents
+    modèles afin de prédire l’espérance de vie d’un pays donné en fonction de multiples variables
+    explicatives.
+    L’objectif principal de cette étude est donc double :
+    1. Comprendre les relations entre les variables socio-économiques et sanitaires et leur influence
+    sur l'espérance de vie.
+    2. Déterminer le modèle prédictif offrant la meilleure performance pour estimer l’espérance de
+    vie en comparant plusieurs approches.
+    Ainsi, nous allons répondre dans ce projet à la problématique suivante : Peut on prédire efficacement
+    l’espérance de vie d’un pays à partir de facteurs socioéconomiques et de santé en utilisant des
+    modèles de Machine Learning et comment évaluer la pertinence des prédictions obtenues ?
+    Cliquez sur le bouton ci-dessous pour le télécharger.
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Chemin vers le fichier PDF
     pdf_file_path = "Projet ML (1).pdf"
+    
+    try:
+        with open(pdf_file_path, "rb") as pdf_file:
+            # Bouton de téléchargement
+            st.download_button(
+                label="📥 Télécharger le rapport",
+                data=pdf_file,
+                file_name="Projet_ML.pdf",
+                mime="application/pdf",
+            )
+    except FileNotFoundError:
+        st.error("Le fichier PDF est introuvable. Vérifiez le chemin du fichier.")
 
-    if os.path.exists(pdf_file_path):
-        st.markdown(f"""
-        <a href="file://{os.path.abspath(pdf_file_path)}" target="_blank">
-        📂 Ouvrir le PDF dans un nouvel onglet
-        </a>
-        """, unsafe_allow_html=True)
-    else:
-        st.error("Le fichier PDF est introuvable.")
 
 elif selected == "Prédictions":
     st.markdown('<div class="gradient-text">Prédictions de l\'espérance de vie</div>', unsafe_allow_html=True)
