@@ -481,7 +481,7 @@ with st.sidebar:
         """, 
         unsafe_allow_html=True
     )
-    st.markdown("<p style='text-align: center; font-size: 1em;'>Projet Data Visualisation<br>Andréa Massé<br>Paul Barthelemy<br>Hamza Silabdi<br>Florian Gaudin <br>ISUP 2024</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1em;'>Projet Data Visualisation<br>ISUP 2024</p>", unsafe_allow_html=True)
 
 if selected == "Comparaison de pays":
     st.markdown('<div class="gradient-text">Comparaison de pays</div>', unsafe_allow_html=True)
@@ -703,12 +703,22 @@ elif selected == "Accueil":
         .stat-card:hover {
             transform: translateY(-5px);
         }
-        
         </style>
         
         <div class="gradient-text">
             Analyse Mondiale de l'Espérance de Vie
         </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <style>
+        div[data-testid="stHorizontalBlock"] {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border: 1px solid #8BA6BC;
+            border-radius: 5px;
+        }
+        </style>
     """, unsafe_allow_html=True)
 
     # Introduction
@@ -783,30 +793,31 @@ elif selected == "Accueil":
 
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
+    col1, = st.columns(1)
+    with col1:
+        if view_type == "Espérance de vie moyenne par région":
+            fig = px.bar(
+                df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
+                x='Region',
+                y='Life_expectancy',
+                title=f"Espérance de vie moyenne par région en {selected_year}",
+                labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'},
+                color_discrete_sequence=['#1e88e5']
+            )
+        else:
+            fig = px.box(
+                df_year,
+                x='Region',
+                y='Life_expectancy',
+                title=f"Distribution de l'espérance de vie par région en {selected_year}",
+                labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'}
+            )
 
-    if view_type == "Espérance de vie moyenne par région":
-        fig = px.bar(
-            df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
-            x='Region',
-            y='Life_expectancy',
-            title=f"Espérance de vie moyenne par région en {selected_year}",
-            labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'},
-            color_discrete_sequence=['#1e88e5']
+        fig.update_layout(
+            template="plotly_white",
+            height=500
         )
-    else:
-        fig = px.box(
-            df_year,
-            x='Region',
-            y='Life_expectancy',
-            title=f"Distribution de l'espérance de vie par région en {selected_year}",
-            labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'}
-        )
-
-    fig.update_layout(
-        template="plotly_white",
-        height=500
-    )
-    st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
 
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
