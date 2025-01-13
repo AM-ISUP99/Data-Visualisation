@@ -22,6 +22,18 @@ st.set_page_config(
 
 )
 
+st.markdown("""
+    <style>
+    .encapsulated {
+        background-color: #FFFFFF;
+        padding: 15px;
+        border: 1px solid #8BA6BC;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Chargement des données
 @st.cache_data  # Cette décoration permet de mettre en cache les données
 def load_data():
