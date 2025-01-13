@@ -560,7 +560,7 @@ if selected == "Comparaison de pays":
 elif selected == "Carte":
     create_kepler_map()
 
-if selected == "Rapport PDF":
+elif selected == "Rapport PDF":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
     
     # Chemin vers le fichier PDF existant
