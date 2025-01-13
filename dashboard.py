@@ -122,20 +122,6 @@ def create_kepler_map():
     
     # Ajouter les données
     map_1.add_data(data=geo_df, name="data_1")
-    
-    # On récupère le HTML brut généré par KeplerGl
-    map_html = map_1._repr_html_()
-
-    # On construit un bloc HTML complet, AVEC la box autour
-    full_html = f"""
-    <div style="border: 1px solid #8BA6BC; border-radius: 5px; padding: 15px; margin-bottom: 1em;">
-        <!-- Titre interne (optionnel) -->
-        <h4 style="margin-top: 0; color: #333;">Vue cartographique</h4>
-
-        <!-- Contenu HTML de la carte Kepler -->
-        {map_html}
-    </div>
-    """
 
     # Afficher
     st.components.v1.html(map_1._repr_html_(), height=600)
