@@ -763,7 +763,8 @@ elif selected == "Accueil":
 
     # Section interactive
     st.subheader("🌍 Explorer les Données")
-    
+
+    with st.container():
     col1, col2 = st.columns(2)
     
     with col1:
@@ -782,30 +783,30 @@ elif selected == "Accueil":
     
     # Création de la visualisation selon le choix
     df_year = df[df['Year'] == selected_year]
-
-    if view_type == "Espérance de vie moyenne par région":
-        fig = px.bar(
-            df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
-            x='Region',
-            y='Life_expectancy',
-            title=f"Espérance de vie moyenne par région en {selected_year}",
-            labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'},
-            color_discrete_sequence=['#1e88e5']
+    with st.container():
+        if view_type == "Espérance de vie moyenne par région":
+            fig = px.bar(
+                df_year.groupby('Region')['Life_expectancy'].mean().reset_index(),
+                x='Region',
+                y='Life_expectancy',
+                title=f"Espérance de vie moyenne par région en {selected_year}",
+                labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'},
+                color_discrete_sequence=['#1e88e5']
+            )
+        else:
+            fig = px.box(
+                df_year,
+                x='Region',
+                y='Life_expectancy',
+                title=f"Distribution de l'espérance de vie par région en {selected_year}",
+                labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'}
+            )
+    
+        fig.update_layout(
+            template="plotly_white",
+            height=500
         )
-    else:
-        fig = px.box(
-            df_year,
-            x='Region',
-            y='Life_expectancy',
-            title=f"Distribution de l'espérance de vie par région en {selected_year}",
-            labels={'Life_expectancy': 'Espérance de vie (années)', 'Region': 'Région'}
-        )
-
-    fig.update_layout(
-        template="plotly_white",
-        height=500
-    )
-    st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
     
     # Section "En savoir plus"
     st.subheader("📚 En savoir plus")
