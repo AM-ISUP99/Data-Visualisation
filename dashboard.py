@@ -560,33 +560,33 @@ if selected == "Comparaison de pays":
 elif selected == "Carte":
     create_kepler_map()
 
-if selected == "Rapport ML":
-    st.markdown('<div class="gradient-text">Rapport Machine Learning</div>', unsafe_allow_html=True)
+if selected == "Rapport PDF":
+    st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
     
-    # Chemin vers le fichier PDF existant
-    pdf_file_path = "Projet ML (1).pdf"  # Remplacez par le chemin de votre fichier
+    # Chemin vers le fichier PDF
+    pdf_file_path = "Projet ML (1).pdf"  # Remplacez par le chemin exact du fichier
     
-    # Vérification si le fichier existe
     try:
         with open(pdf_file_path, "rb") as pdf_file:
-            # Lire le fichier PDF
-            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
+            pdf_data = pdf_file.read()
+            # Encodage en base64
+            base64_pdf = base64.b64encode(pdf_data).decode("utf-8")
             
-            # Afficher le fichier PDF dans un iframe
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px"></iframe>'
+            # Intégration du PDF dans un iframe
+            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="500px"></iframe>'
             st.markdown(pdf_display, unsafe_allow_html=True)
         
-        # Ajouter un bouton pour télécharger le PDF
-        with open(pdf_file_path, "rb") as pdf_file:
-            pdf_data = pdf_file.read()
-            st.download_button(
-                label="📥 Télécharger le rapport PDF",
-                data=pdf_data,
-                file_name="rapport.pdf",
-                mime="application/pdf",
-            )
+        # Bouton de téléchargement
+        st.download_button(
+            label="📥 Télécharger le rapport PDF",
+            data=pdf_data,
+            file_name="rapport.pdf",
+            mime="application/pdf",
+        )
     except FileNotFoundError:
-        st.error("Le fichier PDF est introuvable ! Veuillez vérifier le chemin.")
+        st.error("Le fichier PDF est introuvable ! Vérifiez le chemin d'accès.")
+    except Exception as e:
+        st.error(f"Une erreur s'est produite : {str(e)}")
 
 elif selected == "Prédictions":
     st.markdown('<div class="gradient-text">Prédictions de l\'espérance de vie</div>', unsafe_allow_html=True)
