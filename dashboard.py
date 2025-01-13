@@ -562,32 +562,25 @@ if selected == "Comparaison de pays":
 elif selected == "Carte":
     create_kepler_map()
 
+from pdf2image import convert_from_path
+from PIL import Image
+
 elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
-    # Charger le fichier PDF
-    pdf_file_path = "Projet ML (1).pdf"  # Chemin vers votre fichier PDF
-    try:
-        with open(pdf_file_path, "rb") as pdf_file:
-            # Encodage du PDF en base64 pour l'affichage dans un iframe
-            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
-            pdf_viewer = f"""
-            <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800px"></iframe>
-            """
-            st.markdown(pdf_viewer, unsafe_allow_html=True)
+    # Chemin vers le fichier PDF
+    pdf_file_path = "Projet ML (1).pdf"  # Remplacez par le chemin exact du fichier
 
-        # Ajouter un bouton pour télécharger le PDF
-        with open(pdf_file_path, "rb") as pdf_file:
-            st.download_button(
-                label="📥 Télécharger le rapport PDF",
-                data=pdf_file,
-                file_name="Projet ML (1).pdf",
-                mime="application/pdf",
-            )
-    except FileNotFoundError:
-        st.error("Fichier PDF introuvable. Vérifiez le chemin du fichier.")
+    try:
+        # Convertir le PDF en images
+        pages = convert_from_path(pdf_file_path)
+
+        # Afficher chaque page comme une image
+        for page_number, page in enumerate(pages):
+            st.image(page, caption=f"Page {page_number + 1}", use_column_width=True)
     except Exception as e:
-        st.error(f"Une erreur s'est produite : {e}")
+        st.error(f"Erreur lors de l'affichage du PDF : {str(e)}")
+
 
 
 elif selected == "Prédictions":
