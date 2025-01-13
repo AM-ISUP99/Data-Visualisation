@@ -594,6 +594,8 @@ if selected == "Comparaison de pays":
                     st.dataframe(comparison_df, use_container_width=True)
 
 elif selected == "Carte":
+    with open('.streamlit/custom.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     create_kepler_map()
 
 elif selected == "Prédictions":
