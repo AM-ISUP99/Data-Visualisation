@@ -563,16 +563,23 @@ elif selected == "Carte":
 elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
-    # Chargez dynamiquement un PDF pour tester
-    uploaded_file = st.file_uploader("Projet ML (1).pdf", type=["pdf"])
-    if uploaded_file is not None:
-        base64_pdf = base64.b64encode(uploaded_file.read()).decode("utf-8")
-        pdf_viewer = f"""
-        <object data="data:application/pdf;base64,{base64_pdf}" type="application/pdf" width="100%" height="800px">
-            <p>Impossible d'afficher le PDF. <a href="data:application/pdf;base64,{base64_pdf}" download="rapport.pdf">Télécharger ici</a>.</p>
-        </object>
-        """
-        st.components.v1.html(pdf_viewer, height=800, scrolling=True)
+    # Vérifiez si le fichier existe sur votre disque
+    pdf_file_path = "Projet ML (1).pdf"
+    try:
+        with open(pdf_file_path, "rb") as pdf_file:
+            st.download_button(
+                label="📥 Télécharger le rapport PDF",
+                data=pdf_file,
+                file_name="rapport.pdf",
+                mime="application/pdf",
+            )
+
+        # Afficher une iframe directement à partir du fichier local
+        st.markdown(f"""
+        <iframe src="file:///{pdf_file_path}" width="100%" height="800px"></iframe>
+        """, unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error("Fichier introuvable !")
 
 
 elif selected == "Prédictions":
