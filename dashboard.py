@@ -563,7 +563,7 @@ elif selected == "Carte":
 import os
 import webbrowser
 
-if selected == "Rapport PDF":
+elif selected == "Rapport ML":
     st.markdown('<div class="gradient-text">Rapport PDF</div>', unsafe_allow_html=True)
 
     pdf_file_path = "Projet ML (1).pdf"  # Chemin vers le fichier
