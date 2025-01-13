@@ -596,7 +596,6 @@ elif selected == "Rapport ML":
     Ainsi, nous allons répondre dans ce projet à la problématique suivante : Peut on prédire efficacement
     l’espérance de vie d’un pays à partir de facteurs socioéconomiques et de santé en utilisant des
     modèles de Machine Learning et comment évaluer la pertinence des prédictions obtenues ?<br>
-    Cliquez sur le bouton ci-dessous pour le télécharger.
     </div>
     """, unsafe_allow_html=True)
     
