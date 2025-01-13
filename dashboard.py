@@ -134,7 +134,9 @@ def create_kepler_map():
         }
         </style>
     """, unsafe_allow_html=True)
-    st.components.v1.html(map_1._repr_html_(), height=600)
+    col1 = columns(1)
+    with col1:
+        st.components.v1.html(map_1._repr_html_(), height=800)
 
     # Après l'affichage de la carte, ajouter le guide
     with st.expander("📖 Guide d'utilisation de la carte", expanded=False):
