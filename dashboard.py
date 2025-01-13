@@ -46,46 +46,6 @@ def load_data():
 df = load_data()
 
 def create_kepler_map():
-    st.markdown(
-        """
-        <style>
-        /* Masquer le bouton de menu hamburger */
-        #MainMenu {visibility: hidden;}
-        
-        /* Ajuster les marges du conteneur principal */
-        .block-container {
-            padding: 1rem 1rem 1rem 1rem !important;
-            max-width: 100vw !important;
-        }
-        
-        /* Style pour le conteneur de la carte */
-        .element-container:has(iframe) {
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-        
-        iframe {
-            width: 100% !important;
-            min-height: 800px !important;
-        }
-        
-        /* Ajuster le padding quand le menu est fermé */
-        [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
-            width: 0px;
-            padding-right: 0px;
-        }
-        
-        /* Style du titre */
-        .gradient-text {
-            font-size: 2em;
-            text-align: center;
-            padding: 0.5em 0;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    
     st.markdown('<div class="gradient-text">Carte interactive</div>', unsafe_allow_html=True)
     
     @st.cache_data
