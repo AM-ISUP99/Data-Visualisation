@@ -15,8 +15,6 @@ from keplergl import KeplerGl
 import geopandas as gpd
 import os
 import webbrowser
-from pdf2image import convert_from_path
-from PIL import Image
 
 # Configuration de la page
 st.set_page_config(
