@@ -47,6 +47,35 @@ def load_data():
 df = load_data()
 
 def create_kepler_map():
+
+    st.markdown(
+            """
+            <style>
+            /* Style pour le conteneur principal */
+            .block-container {
+                padding-top: 1rem !important;
+                padding-bottom: 0rem !important;
+                max-width: 100% !important;
+            }
+    
+            /* Style pour le titre */
+            .gradient-text {
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: 1em;
+            }
+    
+            /* Style pour le conteneur de la carte */
+            iframe {
+                width: 100% !important;
+                min-height: 900px !important;
+                border: none !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+    
     st.markdown('<div class="gradient-text">Carte interactive</div>', unsafe_allow_html=True)
     
     @st.cache_data
@@ -125,7 +154,7 @@ def create_kepler_map():
     map_1.add_data(data=geo_df, name="data_1")
 
     # Afficher
-    st.components.v1.html(map_1._repr_html_(), height=800, width=None)
+    st.components.v1.html(map_1._repr_html_(), height=800, width=None, scrolling=False)
 
     # Après l'affichage de la carte, ajouter le guide
     with st.expander("📖 Guide d'utilisation de la carte", expanded=False):
