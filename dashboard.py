@@ -565,37 +565,37 @@ elif selected == "Carte":
 elif selected == "Rapport ML":
 
     # Titre de la page
-    st.markdown('<div style="text-align: center;"><h1>📄 Télécharger le rapport PDF</h1></div>', unsafe_allow_html=True)
+    st.markdown('<div class="gradient-text">Carte interactive</div>', unsafe_allow_html=True)
     
     # Texte explicatif
     st.markdown("""
     <div style="text-align: justify; font-size: 18px;">
     L'évolution des systèmes de santé et des conditions socio-économiques a un impact significatif sur
-    l'espérance de vie des populations. Dans ce projet, nous avons cherché à identifier les principaux
+    l'espérance de vie des populations. <br>Dans ce projet, nous avons cherché à identifier les principaux
     facteurs influençant l'espérance de vie dans différents pays en nous basant sur une base de donnée
     contenant des informations socio-économiques et sanitaires afin d’effectuer une prédiction de
-    l’espérance de vie. Ces données incluent différents indicateurs tels que :
-    • Life expectancy : L’espérance de vie en fonction de l’age (variable cible)
-    Et quelques variables explicatives comme par exemple :
-    • GDP_per_capita : Le PIB par habitant
+    l’espérance de vie. <br>Ces données incluent différents indicateurs tels que :<br>
+    • Life expectancy : L’espérance de vie en fonction de l’age (variable cible)<br>
+    Et quelques variables explicatives comme par exemple :<br>
+    • GDP_per_capita : Le PIB par habitant<br>
     • Adult Mortality : Taux de mortalité des adultes des deux sexes (probabilité de mourir entre
-    15 et 60 ans pour 1000 habitants)
-    • Measles : nombre de cas de rougeole signalés pour 1000 habitants
-    • Infant deaths : Nombre de décès infantiles pour 1000 habitants
-    • Economy_status_Developed : Statut développé ou en développement
+    15 et 60 ans pour 1000 habitants)<br>
+    • Measles : nombre de cas de rougeole signalés pour 1000 habitants<br>
+    • Infant deaths : Nombre de décès infantiles pour 1000 habitants<br>
+    • Economy_status_Developed : Statut développé ou en développement<br>
     Ces variables permettent d’étudier l’impact de différents facteurs sur l’espérance de vie et d’identifier
-    les déterminants majeurs de la longévité.
+    les déterminants majeurs de la longévité.<br>
     Ensuite, en exploitant des techniques de Machine Learning, nous avons mis en place différents
     modèles afin de prédire l’espérance de vie d’un pays donné en fonction de multiples variables
-    explicatives.
-    L’objectif principal de cette étude est donc double :
+    explicatives.<br>
+    L’objectif principal de cette étude est donc double :<br>
     1. Comprendre les relations entre les variables socio-économiques et sanitaires et leur influence
-    sur l'espérance de vie.
+    sur l'espérance de vie.<br>
     2. Déterminer le modèle prédictif offrant la meilleure performance pour estimer l’espérance de
-    vie en comparant plusieurs approches.
+    vie en comparant plusieurs approches.<br>
     Ainsi, nous allons répondre dans ce projet à la problématique suivante : Peut on prédire efficacement
     l’espérance de vie d’un pays à partir de facteurs socioéconomiques et de santé en utilisant des
-    modèles de Machine Learning et comment évaluer la pertinence des prédictions obtenues ?
+    modèles de Machine Learning et comment évaluer la pertinence des prédictions obtenues ?<br>
     Cliquez sur le bouton ci-dessous pour le télécharger.
     </div>
     """, unsafe_allow_html=True)
