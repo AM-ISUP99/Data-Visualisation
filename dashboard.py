@@ -569,7 +569,7 @@ elif selected == "Rapport ML":
     
     # Texte explicatif
     st.markdown("""
-    <div style="text-align: justify; font-size: 18px; padding: 10px; border: 2px solid #1e88e5; border-radius: 8px; background-color: #f0f8ff; margin-top: 20px;">
+    <div style="text-align: justify; font-size: 18px; padding: 10px; border: 2px solid #1e88e5; border-radius: 8px; background-color: #ffffff; margin-top: 20px;">
     L'évolution des systèmes de santé et des conditions socio-économiques a un impact significatif sur
     l'espérance de vie des populations. <br>Dans ce projet, nous avons cherché à identifier les principaux
     facteurs influençant l'espérance de vie dans différents pays en nous basant sur une base de donnée
